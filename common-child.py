@@ -19,24 +19,7 @@ def lcs(f_str, s_str):
                 lengths[i + 1][j + 1] = lengths[i][j] + 1
             else:
                 lengths[i + 1][j + 1] = max(lengths[i + 1][j], lengths[i][j + 1])
-    # debug
-    # for each in lengths:
-    #     print each
-    # read the substring out from the matrix
-    result = list()
-    x, y = len(f_str), len(s_str)
-    while x != 0 and y != 0:
-        if lengths[x][y] == lengths[x - 1][y]:
-            x -= 1
-        elif lengths[x][y] == lengths[x][y - 1]:
-            y -= 1
-        else:
-            assert f_str[x - 1] == s_str[y - 1]
-            result.append(f_str[x - 1])
-            x -= 1
-            y -= 1
-    #return "".join(result[::-1]) to print subsequence
-    return len(result)
+    return lengths[-1][-1]
 
 
 if __name__ == '__main__':
