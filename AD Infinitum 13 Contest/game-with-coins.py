@@ -1,4 +1,4 @@
-for _ in input():
+for _ in xrange(input()):
     left, right = map(int, raw_input().strip().split())
     if left == 0 or right == 0:
         print "First"
